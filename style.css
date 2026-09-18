@@ -9,126 +9,216 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: #000;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #08000d 0%,
+            #020003 45%,
+            #000000 100%
+        );
+
+    color: #ffffff;
+
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
 }
+
+
+/* =========================================================
+   GALAXY
+========================================================= */
 
 #galaxy {
     position: fixed;
+
     inset: 0;
+
     z-index: 1;
+
+    overflow: hidden;
 }
 
 #galaxy canvas {
     display: block;
+
     width: 100%;
     height: 100%;
 }
 
 
-/* HEADER */
+/* =========================================================
+   HEADER
+========================================================= */
 
 header {
     position: fixed;
+
     top: 30px;
     left: 34px;
+
     z-index: 20;
+
+    pointer-events: none;
 }
 
 header h1 {
     font-size: 32px;
+
+    font-weight: 900;
+
     letter-spacing: 9px;
-    font-weight: 800;
-    text-shadow: 0 0 20px white;
+
+    line-height: 1;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.6),
+        0 0 35px rgba(170,80,255,0.4);
 }
 
 header p {
-    margin-top: 8px;
-    font-size: 11px;
+    margin-top: 10px;
+
+    color: #777;
+
+    font-size: 10px;
+
     letter-spacing: 4px;
-    color: #888;
 }
+
+
+/* =========================================================
+   STATUS
+========================================================= */
 
 #status {
     display: inline-flex;
+
     align-items: center;
+
     gap: 9px;
+
     margin-top: 18px;
-    padding: 9px 16px;
-    border: 1px solid #333;
+
+    padding:
+        9px 15px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.2);
+
     border-radius: 30px;
-    font-size: 10px;
+
+    background:
+        rgba(0,0,0,0.35);
+
+    backdrop-filter:
+        blur(10px);
+
+    color: #ddd;
+
+    font-size: 9px;
+
     letter-spacing: 2px;
 }
 
 #statusDot {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
+
     border-radius: 50%;
+
     background: #555;
 }
 
 #statusDot.active {
-    background: #7fff9a;
-    box-shadow: 0 0 12px #7fff9a;
+    background: #65ff91;
+
+    box-shadow:
+        0 0 12px
+        rgba(101,255,145,0.9);
 }
 
 
-/* CAMERA */
+/* =========================================================
+   CAMERA
+========================================================= */
 
 .camera-box {
     position: fixed;
-    top: 30px;
-    right: 30px;
-    width: 330px;
-    height: 250px;
+
+    top: 28px;
+    right: 28px;
+
     z-index: 30;
 
-    background: rgba(0, 0, 0, 0.8);
-
-    border: 1px solid rgba(255,255,255,0.35);
-    border-radius: 16px;
+    width: 330px;
+    height: 250px;
 
     overflow: hidden;
 
+    border:
+        1px solid
+        rgba(255,255,255,0.22);
+
+    border-radius: 18px;
+
+    background: #050505;
+
     box-shadow:
-        0 0 40px rgba(100, 50, 255, 0.15);
+        0 20px 60px
+        rgba(0,0,0,0.6),
+
+        0 0 40px
+        rgba(150,60,255,0.12);
 }
 
 .camera-title {
     position: absolute;
+
     top: 12px;
-    left: 14px;
+    left: 12px;
 
     z-index: 10;
 
-    padding: 7px 10px;
+    padding:
+        7px 11px;
 
-    background: rgba(0,0,0,0.7);
+    border-radius: 20px;
 
-    border-radius: 8px;
+    background:
+        rgba(0,0,0,0.65);
 
-    font-size: 10px;
+    backdrop-filter:
+        blur(8px);
+
+    font-size: 9px;
+
     letter-spacing: 2px;
 }
 
 .camera-title span {
-    color: #ff4f8b;
+    color: #ff4f9b;
 }
 
 
 #webcam {
     position: absolute;
 
+    inset: 0;
+
     width: 100%;
     height: 100%;
 
     object-fit: cover;
 
-    transform: scaleX(-1);
+    transform:
+        scaleX(-1);
 
-    background: #080808;
+    background: #050505;
 }
 
 
@@ -140,7 +230,8 @@ header p {
     width: 100%;
     height: 100%;
 
-    transform: scaleX(-1);
+    transform:
+        scaleX(-1);
 
     pointer-events: none;
 }
@@ -152,16 +243,16 @@ header p {
     left: 50%;
     top: 50%;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
+
+    z-index: 5;
 
     color: #aaa;
 
-    font-size: 12px;
+    font-size: 10px;
+
     letter-spacing: 2px;
-
-    text-align: center;
-
-    z-index: 5;
 }
 
 
@@ -169,49 +260,57 @@ header p {
     position: absolute;
 
     left: 50%;
-    bottom: 20px;
+    bottom: 18px;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     z-index: 20;
 
-    border: 1px solid white;
+    padding:
+        11px 22px;
 
-    background: rgba(0,0,0,0.85);
-
-    color: white;
-
-    padding: 12px 24px;
+    border:
+        1px solid
+        rgba(255,255,255,0.7);
 
     border-radius: 30px;
 
-    cursor: pointer;
+    background:
+        rgba(0,0,0,0.8);
 
-    font-size: 11px;
+    color: #fff;
+
+    font-size: 9px;
 
     letter-spacing: 2px;
 
-    transition: 0.25s;
+    cursor: pointer;
+
+    transition:
+        0.25s ease;
 }
 
 #startCamera:hover {
-    background: white;
-    color: black;
+    background: #fff;
+
+    color: #000;
+
+    transform:
+        translateX(-50%)
+        translateY(-2px);
 }
 
-#startCamera:disabled {
-    opacity: 0.5;
-    cursor: wait;
-}
 
-
-/* CONTROLS */
+/* =========================================================
+   CONTROLS
+========================================================= */
 
 .controls {
     position: fixed;
 
     left: 34px;
-    bottom: 35px;
+    bottom: 34px;
 
     z-index: 20;
 
@@ -219,25 +318,34 @@ header p {
 
     flex-direction: column;
 
-    gap: 10px;
+    gap: 8px;
 }
 
 .control {
-    width: 190px;
+    width: 195px;
 
-    padding: 11px 15px;
+    padding:
+        10px 14px;
 
-    border-left: 2px solid #777;
+    border-left:
+        2px solid
+        rgba(255,255,255,0.35);
 
-    background: rgba(0,0,0,0.35);
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.55),
+            transparent
+        );
 
-    backdrop-filter: blur(8px);
+    backdrop-filter:
+        blur(6px);
 }
 
 .control b {
     display: block;
 
-    font-size: 11px;
+    font-size: 10px;
 
     letter-spacing: 1px;
 }
@@ -247,49 +355,64 @@ header p {
 
     margin-top: 4px;
 
-    font-size: 10px;
-
     color: #777;
+
+    font-size: 9px;
 }
 
 
-/* GESTURE PANEL */
+/* =========================================================
+   GESTURE PANEL
+========================================================= */
 
 .gesture-panel {
     position: fixed;
 
-    right: 30px;
-    bottom: 30px;
+    right: 28px;
+    bottom: 28px;
 
     z-index: 20;
 
     width: 330px;
 
-    padding: 16px;
+    padding:
+        15px 17px;
 
     display: flex;
 
     align-items: center;
 
-    gap: 14px;
+    gap: 13px;
 
-    background: rgba(0,0,0,0.65);
+    border:
+        1px solid
+        rgba(255,255,255,0.18);
 
-    border: 1px solid #292929;
+    border-radius: 15px;
 
-    border-radius: 14px;
+    background:
+        rgba(0,0,0,0.5);
 
-    backdrop-filter: blur(12px);
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,0.4);
 }
 
 #gestureIcon {
-    font-size: 28px;
+    width: 38px;
+
+    font-size: 25px;
+
+    text-align: center;
 }
 
 #gestureName {
     display: block;
 
-    font-size: 12px;
+    font-size: 11px;
 
     letter-spacing: 2px;
 }
@@ -297,15 +420,17 @@ header p {
 #gestureInfo {
     display: block;
 
-    margin-top: 5px;
+    margin-top: 4px;
 
     color: #777;
 
-    font-size: 10px;
+    font-size: 9px;
 }
 
 
-/* MOBILE */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 800px) {
 
@@ -316,7 +441,14 @@ header p {
 
     header h1 {
         font-size: 22px;
+
         letter-spacing: 5px;
+    }
+
+    header p {
+        font-size: 8px;
+
+        letter-spacing: 2px;
     }
 
     .camera-box {
