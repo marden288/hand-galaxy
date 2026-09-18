@@ -1,75 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>HAND GALAXY</title>
 
-    <title>Hand Galaxy</title>
+    <link rel="stylesheet" href="./style.css">
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+    <!-- THREE.JS -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 
+    <!-- MEDIAPIPE -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
 </head>
 
 <body>
 
-    <div id="interface">
+    <div id="galaxy"></div>
 
-        <div class="title">
-            HAND GALAXY
-        </div>
-
-        <div class="subtitle">
-            PYTHON × MEDIAPIPE × THREE.JS
-        </div>
+    <!-- HEADER -->
+    <header>
+        <h1>HAND GALAXY</h1>
+        <p>PYTHON × MEDIAPIPE × THREE.JS</p>
 
         <div id="status">
-            CONNECTING...
+            <span id="statusDot"></span>
+            <span id="statusText">CAMERA OFF</span>
+        </div>
+    </header>
+
+    <!-- CAMERA -->
+    <div class="camera-box">
+
+        <div class="camera-title">
+            <span>●</span>
+            LIVE CAMERA
         </div>
 
-        <div class="controls">
+        <video
+            id="webcam"
+            autoplay
+            playsinline
+            muted
+        ></video>
 
-            <div>
-                <span>✋</span>
-                Move Hand
-                <small>Rotate / Tilt</small>
-            </div>
+        <canvas id="handCanvas"></canvas>
 
-            <div>
-                <span>🤏</span>
-                Pinch
-                <small>Black Hole</small>
-            </div>
+        <div id="cameraMessage">
+            CAMERA READY
+        </div>
 
-            <div>
-                <span>✊</span>
-                Fist
-                <small>Freeze</small>
-            </div>
+        <button id="startCamera">
+            START CAMERA
+        </button>
 
-            <div>
-                <span>👐</span>
-                Two Hands
-                <small>Expand Galaxy</small>
-            </div>
+    </div>
 
+    <!-- CONTROLS -->
+    <div class="controls">
+
+        <div class="control">
+            <b>🖐 MOVE HAND</b>
+            <span>Rotate / Tilt</span>
+        </div>
+
+        <div class="control">
+            <b>🤏 PINCH</b>
+            <span>Black Hole</span>
+        </div>
+
+        <div class="control">
+            <b>✊ FIST</b>
+            <span>Freeze</span>
+        </div>
+
+        <div class="control">
+            <b>👐 TWO HANDS</b>
+            <span>Expand Galaxy</span>
         </div>
 
     </div>
 
-    <script
-        type="module"
-        src="main.js"
-    ></script>
+    <!-- GESTURE -->
+    <div class="gesture-panel">
+
+        <div id="gestureIcon">✋</div>
+
+        <div>
+            <strong id="gestureName">
+                NO HAND
+            </strong>
+
+            <small id="gestureInfo">
+                Start the camera
+            </small>
+        </div>
+
+    </div>
+
+    <script src="./main.js"></script>
 
 </body>
-
 </html>
